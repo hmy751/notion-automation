@@ -10,7 +10,7 @@ const CONFIG = {
 
   // Notion DB 속성 이름
   PROPS: {
-    CHECKBOX: "완료", // 체크박스 속성명
+    CHECKBOX: "📌 완료 처리", // 체크박스 속성명
     STATUS: "상태", // Status 속성명
     COMPLETED_DATE: "완료일", // 완료일 속성명
     TITLE_CANDIDATES: ["이름", "Name", "제목"], // 제목 속성 후보
