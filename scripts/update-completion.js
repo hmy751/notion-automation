@@ -18,7 +18,7 @@ const CONFIG = {
 
   // 상태 값
   STATUS_VALUES: {
-    COMPLETED: "완료", // 완료 상태값
+    COMPLETED: "✅완료", // 완료 상태값
   },
 };
 // ============================================
@@ -46,7 +46,7 @@ async function getCheckedNotCompletedPages() {
         },
         {
           property: CONFIG.PROPS.STATUS,
-          status: {
+          select: {
             does_not_equal: CONFIG.STATUS_VALUES.COMPLETED,
           },
         },
@@ -64,7 +64,7 @@ async function getCompletedWithoutDatePages() {
       and: [
         {
           property: CONFIG.PROPS.STATUS,
-          status: {
+          select: {
             equals: CONFIG.STATUS_VALUES.COMPLETED,
           },
         },
@@ -86,7 +86,7 @@ async function updatePageFull(pageId, title) {
     page_id: pageId,
     properties: {
       [CONFIG.PROPS.STATUS]: {
-        status: {
+        select: {
           name: CONFIG.STATUS_VALUES.COMPLETED,
         },
       },
