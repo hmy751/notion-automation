@@ -1,0 +1,15 @@
+{
+  "name": "notion-automation",
+  "version": "1.0.0",
+  "description": "Notion Capture DB 자동 완료 처리",
+  "main": "scripts/update-completion.js",
+  "scripts": {
+    "update": "node scripts/update-completion.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.14"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

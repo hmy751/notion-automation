@@ -1,0 +1,32 @@
+name: Notion Auto Complete
+
+on:
+  schedule:
+    # 5분마다 실행 (UTC 기준)
+    - cron: "*/5 * * * *"
+
+  # 수동 트리거 (iOS Shortcuts 연동용)
+  workflow_dispatch:
+
+jobs:
+  update-notion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run update script
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_CAPTURE_ID: ${{ secrets.NOTION_DATABASE_CAPTURE_ID }}
+        run: npm run update
